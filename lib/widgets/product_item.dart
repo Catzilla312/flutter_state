@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state/screens/product_details_screen.dart';
 
 class ProductItem extends StatelessWidget {
   final String id;
@@ -15,7 +16,15 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (() {
-        Navigator.of(context).push(MaterialPageRoute(builder: builder))
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: ((context) {
+              return ProductDetailsScreen(
+                title: title,
+              );
+            }),
+          ),
+        );
       }),
       child: GridTile(
         child: Image.network(
